@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Hotel Cost</h1>   
+    <p>For first 10 days, you have to pay regular 100tk. For next 10 days, you will get 20% discount. For the rest of the days, you will get 50% discount.</p> 
+
+    <button id="btn">Check your cost</button>
+
+
+
+
+
+    <script>
+
+        document.getElementById('btn').onclick=function(){
+            function hotelCost(spendingDays){
+
+                var cost=0;
+
+                if(spendingDays<=10){
+                    cost=spendingDays*100;
+                }
+                else if(spendingDays<=20){
+                    till10Days=10*100;
+                    remainigDays=spendingDays-10;
+                    till20Days=remainigDays*80;
+                    cost=till10Days+till20Days;
+                }
+                else{
+                    till10Days=10*100;
+                    till20Days=10*80;
+                    remainigDays=spendingDays-20;
+                    till30Days=remainigDays*50;
+                    cost=till10Days+till20Days+till30Days;
+                }
+
+                return cost;
+
+            }
+
+
+            var tk=prompt('How many days you want to stay?');
+            var totalCost = hotelCost(tk);
+            document.write('<h1>Your total rent is: </h1>' + '<h4>'+totalCost+'tk'+'</h4>');
+        }
+
+    </script>
+
+
+</body>
+</html>
